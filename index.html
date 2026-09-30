@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expences Tracker || Jerry</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Background Video Layer -->
+<video autoplay loop muted playsinline id="bg-video">
+    <!-- Local file path ya direct mp4 URL -->
+    <source src="video/money.mp4" type="video/mp4">
+    
+</video>
+
+<!-- Gradient Overlay Layer -->
+<div class="video-overlay"></div>
+
+    <main class="container">
+        <h2>Expance Tracker</h2>
+        <!-- balance summary card-->
+        <section class="balance-card" aria-labelledby="balance-heading">
+            <h4 id="balance-heading" class="sr-only">Account Balance Summary</h4>
+            <h4>Your Balance</h4>
+            <h1 id="balance" aria-live="polite">₹0.00</h1>
+
+            <div class="inc-exp-container">
+                <div class="money-box inc">
+                    <h4>INCOME</h4>
+                    <p id="money-plus" class="money plus" aria-live="polite">+₹0.00</p>
+                </div>
+                <div class="money-box exp">
+                    <h4>EXPENSE</h4>
+                    <p id="money-minus" class=" money-minus" aria-live="polite">-₹0.00</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- transaction history list-->
+        <section aria-labelledby="history-heading">
+            <h3 id="history-heading" class="add-new">History</h3>
+            <ul id="list" class="list" aria-live="polite"></ul> <!--js ka kaam h-->
+        </section>
+        <!-- add transaction Form-->
+        <section aria-labelledby="form-heading">
+            <h3 id="form-heading" class="add-new">Add New Transaction</h3>
+            <!-- novalidate is crucial because we handle validation in js now-->
+            <form id="form" novalidate autocomplete="off">
+                <div class="form-control">
+                    <lable for="test">Transaction Name</lable>
+                    <input type="text" id="text" placeholder="e.g. Salary, Rent,Coffee...." minlength="2" maxlength="50"
+                        required aria-required="true">
+                </div>
+                <div class="form-control">
+                    <label for="amount">
+                        Amount <br />
+                        <small class="add-new">(Negative = Expense, positive = Income)</small>
+                    </label>
+                    <input type="number" id="amount" placeholder="e.g. 500 or -200" step="any" inputmode="numeric"
+                        required aria-required="true">
+                </div>
+                <button class="btn" type="submit" aria-label="Add transaction to list">Add Transaction</button>
+            </form>
+        </section>
+    </main>
+    <script src="script.js"></script>
+</body>
+
+</html>
